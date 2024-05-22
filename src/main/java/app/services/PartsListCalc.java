@@ -75,23 +75,22 @@ public class PartsListCalc {
 
         OrderMapper.updateTotalPrice(adminMadePrice,orderId,connectionPool);
 
-
     }
+
     private static float partsListPriceCalcById(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         int orderId = Integer.parseInt(ctx.formParam("orderId"));
         List<Orderline> userOrder = OrderlineMapper.getPartsListByOrderId(orderId, connectionPool);
         float totalPrice = 0;
         for (int i = 0; i <= userOrder.size()-1; i++) {
 
-            Orderline orderline = userOrder.get(i); // Fetch the current orderline
-            Material material = orderline.getMaterial(); // Fetch the material associated with this orderline
+            Orderline orderline = userOrder.get(i);
+            Material material = orderline.getMaterial();
 
             float retailPriceTotal = material.getRetailPrice();
             int quantity = orderline.getQuantity();
             int customerLengthInMeters= orderline.getVariant().getLength()/100;
 
-            totalPrice += quantity * (retailPriceTotal * customerLengthInMeters); // Accumulate the line price into totalPrice
-
+            totalPrice += quantity * (retailPriceTotal * customerLengthInMeters);
 
         }
         return totalPrice;
@@ -162,8 +161,6 @@ public class PartsListCalc {
 
 
     public static int calcBeams(int customlength, ConnectionPool connectionPool) {
-        List<Variant> variantList=new ArrayList<>();
-
         int bestMatch = 0;
 
         List<Variant> variant = VariantMapper.selectVariantLengthById(5, connectionPool);
