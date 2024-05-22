@@ -129,14 +129,12 @@ public class UserController {
      * Metoden skal sende brugeren videre hvis deres login er godkendt. Hvis man er admin bliver man sendt til en anden side
      */
     public static void login(Context ctx, ConnectionPool connectionPool) {
-
         String email = ctx.formParam("email");
         String password = ctx.formParam("password");
         String widthParam = ctx.formParam("width");
         String lengthParam = ctx.formParam("length");
         if (widthParam != null && !widthParam.isEmpty() && lengthParam != null && !lengthParam.isEmpty()) {
             try {
-
                 int w = Integer.parseInt(ctx.formParam("width"));
                 int l = Integer.parseInt(ctx.formParam("length"));
                 ctx.sessionAttribute("currentLength", l);
@@ -150,11 +148,7 @@ public class UserController {
             User user = UserMapper.login(email, password, connectionPool);
             //Hvis login-operationen lykkes, gemmes brugeren som den aktuelle bruger i sessionsattributterne i kontekstobjektet.
             ctx.sessionAttribute("currentUser", user);
-            //En meddelelse om, at brugeren er logget ind, tilføjes til attributterne i kontekstobjektet.
-            ctx.attribute("message", "du er nu logget ind");
-            //Til sidst renderes en HTML-side, som brugeren vil blive videresendt til efter vellykket login
 
-            //TODO: OBS, hvis en bruger har en et tilbud liggende, kan denne ikke lave en nye forespørgsel, fix pls
             if (user.getRole().equalsIgnoreCase("customer")) {
                 boolean status= OrderMapper.doesOrderByUserIdExist(user.getUserId(),connectionPool);
                 if (status==true){
@@ -167,15 +161,11 @@ public class UserController {
                     ctx.render("custompage.html");
                 }
             } else {
-
                 OrderController.displayAllOrders(ctx, connectionPool);
             }
-
-
         } catch (DatabaseException e) {
             //Fejlmeddelelsen fra DatabaseException tilføjes som en attribut til kontekstobjektet.
             ctx.attribute("message", e.getMessage());
-            // HTML-siden, sandsynligvis startsiden, renderes, og brugeren præsenteres for en fejlmeddelelse.
             ctx.render("login.html");
         }
 
