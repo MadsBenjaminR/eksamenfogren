@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Fog</title>
+    <link rel="icon" type="image/png" href="/images/FOGlogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <header class="blue-color">
+        <a href="returnlogo">
+            <img class="FOGlogo" alt="logo" src="../public/images/FOGlogo.png" th:src="@{/images/FOGlogo.png}"/>
+        </a>
+    </header>
+
+
+    <h1>Tak for din bestilling!</h1>
+    <h2>Her er en oversigt over din ordre</h2>
+    <h3> - Kvittering for din ordre</h3>
+    <h3> - stykliste for din ordre</h3>
+    <h3> - plantegning af carport</h3>
+    <h3> - Byggevejledning</h3>
+    <h3> - Information om tidspunkt for levering</h3>
+
+
+    <h3> STYKLISTE </h3>
+
+    <table class="table" action="index.html">
+
+        <thead>
+        <tr>
+            <th>Beskrivelse</th>
+            <th>Længde</th>
+            <th>Antal</th>
+            <th>Enhed</th>
+            <th>Funktionel beskrivelse</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="orderline : ${session.orderlines}">
+            <td th:text="${orderline.material.name}"></td>
+            <td th:text="${orderline.variant.length}">cm</td>
+            <td th:text="${orderline.quantity}"></td>
+            <td th:text="${orderline.unit}"></td>
+            <td th:text="${orderline.functionalDescription}"></td>
+        </tbody>
+    </table>
+
+
+    <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
+        <button class="button-white">Log ud</button>
+    </a>
+</div>
+
+
+</body>
+</html>

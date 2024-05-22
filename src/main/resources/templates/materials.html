@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Fog</title>
+    <link rel="icon" type="image/png" href="/images/FOGlogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <header class="blue-color">
+        <a href="returnlogo">
+            <img class="FOGlogo" alt="logo" src="../public/images/FOGlogo.png" th:src="@{/images/FOGlogo.png}"/>
+        </a>
+    </header>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Material ID</th>
+            <th>Name</th>
+            <th>Width</th>
+            <th>Height</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Retail Price</th>
+            <th>Purchase Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop gennem alle materialer og vis dem i en tabel -->
+        <tr th:each="material: ${materials}">
+            <td th:text="${material.materialId}"></td>
+            <td th:text="${material.name}"></td>
+            <td th:text="${material.materialWidth}"></td>
+            <td th:text="${material.materialHeight}"></td>
+            <td th:text="${material.quantity}"></td>
+            <td th:text="${material.unit}"></td>
+            <td th:text="${material.retailPrice}">kr</td>
+            <td th:text="${material.purchasePrice}">kr</td>
+            <td>
+                <!-- Edit form, ud for hvert materiale-->
+            <td>
+                <form action="editmaterial.html" method="post">
+                    <!-- Material information passed directly in the form -->
+                    <input type="hidden" name="materialId" th:value="${material.materialId}">
+                    <input type="hidden" name="name" th:value="${material.name}">
+                    <input type="hidden" name="width" th:value="${material.materialWidth}">
+                    <input type="hidden" name="height" th:value="${material.materialHeight}">
+                    <input type="hidden" name="quantity" th:value="${material.quantity}">
+                    <input type="hidden" name="unit" th:value="${material.unit}">
+                    <input type="hidden" name="retailPrice" th:value="${material.retailPrice}">
+                    <input type="hidden" name="purchasePrice" th:value="${material.purchasePrice}">
+                    <!-- Submit button -->
+                    <button type="submit">Edit</button>
+                </form>
+                <!-- Delete form for each material -->
+                <form action="editmaterial.html" method="post">
+                    <input type="hidden" name="materialId" th:value="${material.materialId}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="adminrequest.html" th:href="@{adminrequest}">
+        <button type="button">Back</button>
+    </a>
+
+    <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
+        <button class="button-white">Log ud</button>
+    </a>
+</div>
+</body>
+</html>

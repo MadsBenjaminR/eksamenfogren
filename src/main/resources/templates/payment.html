@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Fog</title>
+    <link rel="icon" type="image/png" href="/images/FOGlogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <header class="blue-color">
+        <a href="returnlogo">
+            <img class="FOGlogo" alt="logo" src="../public/images/FOGlogo.png" th:src="@{/images/FOGlogo.png}"/>
+        </a>
+    </header>
+
+    <h1>Din Ordre</h1>
+    <form class="table" id="table-styling" method="post">
+        <table>
+            <thead>
+            <tr>
+
+                <th>Bredde</th>
+                <th>Længde</th>
+                <th>Tag</th>
+                <th>Total Pris</th>
+                <th>orderId</th>
+                <th>stykliste</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orders: ${session.orders}">
+                <td th:text="${orders.customerWidth}"></td>
+                <td th:text="${orders.customerLength}"></td>
+                <td>Trapez</td>
+                <td th:text="${orders.price}"></td>
+                <td th:text="${orders.orderId}"></td>
+                <td>
+                    <button class="button-blue" id="purchasereceipt" name="orderId" th:value="${orders.orderId}"
+                            formaction="/purchasereceipt" type="submit">Accepter tilbud
+                    </button>
+                </td>
+
+
+            </tr>
+
+            </tbody>
+        </table>
+    </form>
+
+    <div class="carport-svg-2d">
+        <div th:utext="${svg}">
+
+        </div>
+    </div>
+
+
+    <h3>Brug for hjælp?</h3>
+    <h5>Kontakt os på:</h5>
+    <p>E-mail: webshop@johannesfog.dk</p>
+    <p>tlf: 90909090</p>
+
+    <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
+        <button class="button-white">Log ud</button>
+    </a>
+</div>
+</body>
+</html>

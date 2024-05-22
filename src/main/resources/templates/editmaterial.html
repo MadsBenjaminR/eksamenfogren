@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Fog</title>
+    <link rel="icon" type="image/png" href="/images/FOGlogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <header class="blue-color">
+        <a href="returnlogo">
+            <img class="FOGlogo" alt="logo" src="../public/images/FOGlogo.png" th:src="@{/images/FOGlogo.png}"/>
+        </a>
+    </header>
+
+    <h1>Edit Material</h1>
+
+    <form action="/savematerialchanges" method="post">
+        <input type="hidden" name="materialId" th:value="${material.materialId}">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:value="${material.name}">
+
+        <label for="width">Width:</label>
+        <input type="text" id="width" name="width" th:value="${material.materialWidth}">
+
+        <label for="height">Height:</label>
+        <input type="text" id="height" name="height" th:value="${material.materialHeight}">
+
+        <label for="quantity">Quantity:</label>
+        <input type="text" id="quantity" name="quantity" th:value="${material.quantity}">
+
+        <label for="unit">Unit:</label>
+        <input type="text" id="unit" name="unit" th:value="${material.unit}">
+
+        <label for="retailPrice">Retail Price:</label>
+        <input type="text" id="retailPrice" name="retailPrice" th:value="${material.retailPrice}">
+
+        <label for="purchasePrice">Purchase Price:</label>
+        <input type="text" id="purchasePrice" name="purchasePrice" th:value="${material.purchasePrice}">
+
+        <button type="submit" formaction="/savematerialchanges">Save Changes</button>
+    </form>
+
+    <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
+        <button class="button-white">Log ud</button>
+    </a>
+</div>
+</body>
+</html>

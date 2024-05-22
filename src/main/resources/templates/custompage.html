@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Fog</title>
+    <link rel="icon" type="image/png" href="/images/FOGlogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <header class="blue-color">
+        <a href="returnlogo">
+            <img class="FOGlogo" alt="logo" src="../public/images/FOGlogo.png" th:src="@{/images/FOGlogo.png}"/>
+        </a>
+    </header>
+
+    <h2>Vælg mål til din carport</h2>
+
+    <!--ikke logget ind  !-->
+    <div th:if="${session.currentUser == null}">
+        <form name="form1" id="form1" action="/custompage" method="post">
+            <select name="length" id="length" required>
+                <option value="" disabled th:selected="${session.currentLength == 0}">Længde</option>
+                <option value="240" th:selected="${session.currentLength == 240}">240 cm</option>
+                <option value="270" th:selected="${session.currentLength == 270}">270 cm</option>
+                <option value="300" th:selected="${session.currentLength == 300}">300 cm</option>
+                <option value="330" th:selected="${session.currentLength == 330}">330 cm</option>
+                <option value="360" th:selected="${session.currentLength == 360}">370 cm</option>
+                <option value="390" th:selected="${session.currentLength == 390}">400 cm</option>
+                <option value="420" th:selected="${session.currentLength == 420}">430 cm</option>
+                <option value="450" th:selected="${session.currentLength == 450}">450 cm</option>
+                <option value="480" th:selected="${session.currentLength == 480}">480 cm</option>
+                <option value="510" th:selected="${session.currentLength == 510}">510 cm</option>
+                <option value="540" th:selected="${session.currentLength == 540}">540 cm</option>
+                <option value="570" th:selected="${session.currentLength == 570}">570 cm</option>
+                <option value="600" th:selected="${session.currentLength == 600}">600 cm</option>
+                <option value="630" th:selected="${session.currentLength == 630}">630 cm</option>
+                <option value="660" th:selected="${session.currentLength == 660}">660 cm</option>
+                <option value="690" th:selected="${session.currentLength == 690}">690 cm</option>
+                <option value="720" th:selected="${session.currentLength == 720}">720 cm</option>
+                <option value="750" th:selected="${session.currentLength == 750}">750 cm</option>
+                <option value="780" th:selected="${session.currentLength == 780}">780 cm</option>
+            </select>
+
+            <div class="dropdown-box-width">
+                <select name="width" id="width" required>
+                    <option value="" disabled th:selected="${session.currentWidth == 0}">Bredde</option>
+                    <option value="240" th:selected="${session.currentWidth == 240}">240 cm</option>
+                    <option value="270" th:selected="${session.currentWidth == 270}">270 cm</option>
+                    <option value="300" th:selected="${session.currentWidth == 300}">300 cm</option>
+                    <option value="330" th:selected="${session.currentWidth == 330}">330 cm</option>
+                    <option value="360" th:selected="${session.currentWidth == 360}">370 cm</option>
+                    <option value="390" th:selected="${session.currentWidth == 390}">400 cm</option>
+                    <option value="420" th:selected="${session.currentWidth == 420}">430 cm</option>
+                    <option value="450" th:selected="${session.currentWidth == 450}">450 cm</option>
+                    <option value="480" th:selected="${session.currentWidth == 480}">480 cm</option>
+                    <option value="510" th:selected="${session.currentWidth == 510}">510 cm</option>
+                    <option value="540" th:selected="${session.currentWidth == 540}">540 cm</option>
+                    <option value="570" th:selected="${session.currentWidth == 570}">570 cm</option>
+                    <option value="600" th:selected="${session.currentWidth == 600}">600 cm</option>
+                </select>
+            </div>
+
+
+            <div class="if-buttons">
+                <div class="need-login-text">
+                    <div class="user-button">
+                        <h3>Log ind for at sende en forespørgsel</h3>
+                        <button class="button-blue" type="submit" formaction="createuser.html"
+                                th:formaction="createuser">Opret bruger
+                        </button>
+                        <button class="button-white" type="submit" formaction="login.html" th:formaction="login">Log ind
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- logget ind !-->
+    <a th:if="${session.currentUser != null}">
+        <form name="form1" id="form1" action="/custompage" method="post">
+            <select name="length" id="length" required>
+                <option value="" disabled th:selected="${session.currentLength == 0}">Længde</option>
+                <option value="240" th:selected="${session.currentLength == 240}">240 cm</option>
+                <option value="270" th:selected="${session.currentLength == 270}">270 cm</option>
+                <option value="300" th:selected="${session.currentLength == 300}">300 cm</option>
+                <option value="330" th:selected="${session.currentLength == 330}">330 cm</option>
+                <option value="360" th:selected="${session.currentLength == 360}">370 cm</option>
+                <option value="390" th:selected="${session.currentLength == 390}">400 cm</option>
+                <option value="420" th:selected="${session.currentLength == 420}">430 cm</option>
+                <option value="450" th:selected="${session.currentLength == 450}">450 cm</option>
+                <option value="480" th:selected="${session.currentLength == 480}">480 cm</option>
+                <option value="510" th:selected="${session.currentLength == 510}">510 cm</option>
+                <option value="540" th:selected="${session.currentLength == 540}">540 cm</option>
+                <option value="570" th:selected="${session.currentLength == 570}">570 cm</option>
+                <option value="600" th:selected="${session.currentLength == 600}">600 cm</option>
+                <option value="630" th:selected="${session.currentLength == 630}">630 cm</option>
+                <option value="660" th:selected="${session.currentLength == 660}">660 cm</option>
+                <option value="690" th:selected="${session.currentLength == 690}">690 cm</option>
+                <option value="720" th:selected="${session.currentLength == 720}">720 cm</option>
+                <option value="750" th:selected="${session.currentLength == 750}">750 cm</option>
+                <option value="780" th:selected="${session.currentLength == 780}">780 cm</option>
+            </select>
+
+            <div class="dropdown-box-width">
+                <select name="width" id="width" required>
+                    <option value="" disabled th:selected="${session.currentWidth == 0}">Bredde</option>
+                    <option value="240" th:selected="${session.currentWidth == 240}">240 cm</option>
+                    <option value="270" th:selected="${session.currentWidth == 270}">270 cm</option>
+                    <option value="300" th:selected="${session.currentWidth == 300}">300 cm</option>
+                    <option value="330" th:selected="${session.currentWidth == 330}">330 cm</option>
+                    <option value="360" th:selected="${session.currentWidth == 360}">370 cm</option>
+                    <option value="390" th:selected="${session.currentWidth == 390}">400 cm</option>
+                    <option value="420" th:selected="${session.currentWidth == 420}">430 cm</option>
+                    <option value="450" th:selected="${session.currentWidth == 450}">450 cm</option>
+                    <option value="480" th:selected="${session.currentWidth == 480}">480 cm</option>
+                    <option value="510" th:selected="${session.currentWidth == 510}">510 cm</option>
+                    <option value="540" th:selected="${session.currentWidth == 540}">540 cm</option>
+                    <option value="570" th:selected="${session.currentWidth == 570}">570 cm</option>
+                    <option value="600" th:selected="${session.currentWidth == 600}">600 cm</option>
+                </select>
+            </div>
+
+            <div>
+                <h3>Godkend længde og bredde</h3>
+                <button class="button-blue" type="submit" name="offer" formaction="/requestreceipt"
+                        th:formaction="@{/requestreceipt}">Send forespørgsel
+                </button>
+            </div>
+        </form>
+    </a>
+    <a th:if="${session.currentUser != null}" href="offeroverview.html">
+        <button class="button-white" type="submit" name="offeroverviewknap">Gå til din oversigt</button>
+    </a>
+
+    <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
+        <button class="button-white">Log ud</button>
+    </a>
+</div>
+</body>
+</html>

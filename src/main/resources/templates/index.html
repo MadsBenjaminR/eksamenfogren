@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Fog</title>
+    <link rel="icon" type="image/png" href="/images/FOGlogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="blue-color">
+        <a href="returnlogo">
+            <img class="FOGlogo" alt="logo" src="../public/images/FOGlogo.png" th:src="@{/images/FOGlogo.png}"/>
+        </a>
+    </header>
+
+
+    <div>
+        <h1>Lad os tegne din carport drøm - bestil et Quick-Byg tilbud</h1>
+
+        <h2> Med et specialudviklet computerprogram kan vi lynhurtigt beregne prisen på din carport. </h2>
+
+        <h3> Ved bestilling medfølger standard byggevejledning.</h3>
+    </div>
+
+    <a href="custompage">
+        <img alt="logo" src="../public/images/customcarportpic.png" th:src="@{/images/customcarportpic.png}"/></a>
+
+    <div class="log-buttons">
+        <a th:href="login" href="login.html">
+            <button type="button" class="button-white">Log ind</button>
+        </a>
+        <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
+            <button class="button-white">Log ud</button>
+        </a>
+    </div>
+
+    <a th:href="@{/showcarport2}" href="showcarport2.html">Show carport2 again molda</a>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Fog</title>
+    <link rel="icon" type="image/png" href="/images/FOGlogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <header class="blue-color">
+        <a th:href="@{/}">
+            <img class="FOGlogo" alt="logo" th:src="@{/images/FOGlogo.png}"/>
+        </a>
+    </header>
+
+
+    <form class="table" id="table-styling" method="post">
+        <div th:if="${session.status == 'Tilbud sendt'}">
+            <table>
+                <thead>
+                <tr>
+                    <th>Bredde</th>
+                    <th>Længde</th>
+                    <th>Tag</th>
+                    <th>Total Pris</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="order : ${session.orders}">
+                    <td th:text="${order.customerWidth}">Width</td>
+                    <td th:text="${order.customerLength}">Length</td>
+                    <td>Trapez</td>
+                    <td th:text="${order.price}">Price</td>
+                    <td>
+                        <button class="button-blue" type="submit" th:value="${order.orderId}"
+                                th:formaction="@{/payment}">Gå til tilbud
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+    <div th:if="${session.status != 'Tilbud sendt'}">
+        <h1>Ordre venter på bekræftelse fra sælger</h1>
+        <h2>Tjek tilbage senere</h2>
+
+        <h3>Brug for hjælp?</h3>
+        <h5>kontakt os på:</h5>
+        <p>E-mail: webshop@johannesfog.dk</p>
+        <p>tlf: 90909090</p>
+
+    </div>
+
+    <a th:if="${session.currentUser != null}" th:href="@{/logout}">
+        <button class="button-white">Log ud</button>
+    </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Fog</title>
+    <link rel="icon" type="image/png" href="/images/FOGlogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <header class="blue-color">
+        <a href="returnlogo">
+            <img class="FOGlogo" alt="logo" src="../public/images/FOGlogo.png" th:src="@{/images/FOGlogo.png}"/>
+        </a>
+    </header>
+    <form method="post">
+
+        <h3>Stykliste</h3>
+        <table class="table" action="index.html">
+
+            <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Antal</th>
+                <th>Enhed</th>
+                <th>Funktionel beskrivelse</th>
+                <th>Længde</th>
+                <th>Bredde</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="orderline : ${session.orderlines}">
+                <td th:text="${orderline.material.name}"></td>
+                <td th:text="${orderline.quantity}"></td>
+                <td th:text="${orderline.unit}"></td>
+                <td th:text="${orderline.functionalDescription}"></td>
+                <td th:text="${orderline.variant.length}"></td>
+                <td th:text="${orderline.material.materialWidth}"></td>
+                <td>
+                    <input type="hidden" name="orderId" th:value="${orderline.orders.orderId}"/>
+                </td>
+            </tr>
+            <!-- <td th:text="${orderline.totalPrice}"></td> -->
+            </tbody>
+
+        </table>
+        <h3>Dækningsgrad efter prisforslag</h3>
+
+
+        <h3>Pris og </h3>
+        Anbefalet pris: <span th:text="${session.totalprice}"></span><br/>
+        Indkøbspris: <span th:text="${session.purchaseprice}"></span><br/>
+        Dækningsgrad: <span th:text="${session.profitmargin}"></span><br/>
+        <input class="price" type="text" id="set-price" name="set-price" placeholder="Indtast pris">
+        <button class="button-blue" type="submit" formaction="/sendoffer">Send tilbud</button>
+    </form>
+
+
+    <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
+        <button class="button-white">Log ud</button>
+    </a>
+
+    <button class="carport-svg-2d" type="button">Se tegning</button>
+</div>
+</body>
+</html>

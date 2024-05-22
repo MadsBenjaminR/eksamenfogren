@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+@startuml
+hide circle
+hide method
+
+class Order {
+    item number
+    height
+    width
+    length
+    name
+    price
+    description
+
+}
+
+class Material {
+    height
+    width
+    length
+    price
+    description
+}
+class Customer {
+    name
+    address
+    telephone number
+}
+
+class SalesPerson {
+
+}
+
+class PartsList {
+
+}
+
+class Fog {
+}
+
+Fog -right- "*" SalesPerson: has >
+Order "*" -right- "*" Material: consists of >
+Fog -right- "*" Order: administrates >
+SalesPerson "1"-right- "*"Customer: serves  >
+Customer "1" -- "*" Order: places  >
+Order "1" -- "1" PartsList: consists of >
+PartsList "1" -right- "*" Material: consists of >
+
+
+
+@enduml

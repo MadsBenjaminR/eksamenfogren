@@ -1,0 +1,131 @@
+/* Stylesheet for the application */
+
+
+
+
+
+.button-blue {
+    background-color: #013d7a; /* blue */
+    border: 1px solid #000;
+    color: white;
+    padding: 16px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 4px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.button-blue:hover {
+    background-color: #256fba;
+    color: white;
+    outline: none; /* Remove the default focus outline */
+    border-color: #013d7a; /* Apply a custom border color when focused */
+    box-shadow: 0 0 5px #256fba; /* Apply a custom box shadow when focused */
+
+}
+
+.button-white{
+    background-color: white; /* blue */
+    border: 1px solid #000;
+    color: black;
+    padding: 16px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 4px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 3px;
+
+}
+
+.button-white:hover {
+    background-color: whitesmoke;
+    color: black;
+    outline: none; /* Remove the default focus outline */
+    border-color: #013d7a; /* Apply a custom border color when focused */
+    box-shadow: 0 0 5px #256fba; /* Apply a custom box shadow when focused */
+
+}
+
+h1 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* Style h2 element */
+h2 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+
+
+}
+
+/* Style h3 element */
+h3 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input[type=text], select {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #013d7a;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus,
+select:focus {
+    outline: none; /* Remove the default focus outline */
+    border-color: #013d7a; /* Apply a custom border color when focused */
+    box-shadow: 0 0 5px #256fba; /* Apply a custom box shadow when focused */
+}
+
+.blue-color{
+    background-color: #013d7a;
+    margin: 0 0 0 0 ;
+    border-color: #013d7a;
+}
+
+
+.table {
+
+}
+
+.table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: separate;
+    width: 100%;
+    border-radius: 50px;
+}
+
+.table td, .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table tr:nth-child(even){background-color: #f2f2f2;}
+
+.table tr:hover {background-color: #ddd;}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #85b2ea;
+    color: white;
+}

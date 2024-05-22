@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Fog</title>
+    <link rel="icon" type="image/png" href="/images/FOGlogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <header class="blue-color">
+        <a href="returnlogo">
+            <img class="FOGlogo" alt="logo" src="../public/images/FOGlogo.png" th:src="@{/images/FOGlogo.png}"/>
+        </a>
+    </header>
+
+    <form method="post">
+        <div class="buttons-makingauser">
+
+            <input class="name" type="text" name="name" placeholder="fulde navn"/>
+            <input class="email" type="text" name="email" placeholder="e-mail"/>
+            <input class="password" type="text" name="password1" placeholder="kodeord"/>
+            <input class="password2" type="text" name="password2" placeholder="bekræft kodeord"/>
+            <input class="street-name" type="text" name="street-name" placeholder="vejnavn">
+            <input class="house-number" type="text" name="house-number" placeholder="husnummer">
+            <input class="floor" type="text" name="floor" placeholder="etage">
+            <input class="phone-number" type="text" name="phone-number" placeholder="telefon" maxlength="8">
+            <input class="zip" type="text" name="zip" placeholder="postnummer" maxlength="4">
+
+            <input type="hidden" name="width" id="width" th:value="${session.currentWidth}">
+            <input type="hidden" name="length" id="length" th:value="${session.currentLength}">
+
+            <button class="button-blue" type="submit" formaction="/signup">Opret bruger</button>
+
+            <div><p th:text="${message}"></p></div>
+
+
+        </div>
+    </form>
+
+    <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
+        <button class="button-white">Log ud</button>
+    </a>
+</div>
+
+</body>
+</html>
