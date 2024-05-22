@@ -15,37 +15,37 @@
             <img class="FOGlogo" alt="logo" src="../public/images/FOGlogo.png" th:src="@{/images/FOGlogo.png}"/>
         </a>
     </header>
+    <div>
+        <form class="table" id="table-styling" method="post">
+            <table class="order-table">
 
-    <form class="table" id="table-styling" method="post">
-        <table class="order-table">
+                <thead>
+                <tr>
+                    <th>Bredde</th>
+                    <th>Længde</th>
+                    <th>Status</th>
+                    <th>Navn</th>
+                    <th>Postnummer</th>
+                </tr>
+                </thead>
 
-            <thead>
-            <tr>
-                <th>Bredde</th>
-                <th>Længde</th>
-                <th>Status</th>
-                <th>Navn</th>
-                <th>Postnummer</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <tr th:each="orders : ${session.ordersList}">
-                <td th:text="${orders.customerWidth}"></td>
-                <td th:text="${orders.customerLength}"></td>
-                <td th:text="${orders.status}"></td>
-                <td th:text="${orders.contactInformation.name}"></td>
-                <td th:text="${orders.contactInformation.zipCodeFK}"></td>
-                <td>
-                    <button class="button-blue" id="calculatebutton" name="orderId" th:value="${orders.orderId}"
-                            formaction="/calculatebutton" type="submit">Vis stykliste
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </form>
-
+                <tbody>
+                <tr th:each="orders : ${session.ordersList}">
+                    <td th:text="${orders.customerWidth}"></td>
+                    <td th:text="${orders.customerLength}"></td>
+                    <td th:text="${orders.status}"></td>
+                    <td th:text="${orders.contactInformation.name}"></td>
+                    <td th:text="${orders.contactInformation.zipCodeFK}"></td>
+                    <td>
+                        <button class="button-blue" id="calculatebutton" name="orderId" th:value="${orders.orderId}"
+                                formaction="/calculatebutton" type="submit">Vis stykliste
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
 
     <a class="button-material-list" href="material-list">
         <button class="material-overview-btn" type="submit">Til Materiale Liste</button>

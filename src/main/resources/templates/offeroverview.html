@@ -10,41 +10,42 @@
 </head>
 <body>
 <div class="container">
+
     <header class="blue-color">
-        <a th:href="@{/}">
-            <img class="FOGlogo" alt="logo" th:src="@{/images/FOGlogo.png}"/>
+        <a href="returnlogo">
+            <img class="FOGlogo" alt="logo" src="../public/images/FOGlogo.png" th:src="@{/images/FOGlogo.png}"/>
         </a>
     </header>
 
-
-    <form class="table" id="table-styling" method="post">
-        <div th:if="${session.status == 'Tilbud sendt'}">
-            <table>
-                <thead>
-                <tr>
-                    <th>Bredde</th>
-                    <th>Længde</th>
-                    <th>Tag</th>
-                    <th>Total Pris</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="order : ${session.orders}">
-                    <td th:text="${order.customerWidth}">Width</td>
-                    <td th:text="${order.customerLength}">Length</td>
-                    <td>Trapez</td>
-                    <td th:text="${order.price}">Price</td>
-                    <td>
-                        <button class="button-blue" type="submit" th:value="${order.orderId}"
-                                th:formaction="@{/payment}">Gå til tilbud
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </form>
-
+    <div>
+        <form class="table" id="table-styling" method="post">
+            <div th:if="${session.status == 'Tilbud sendt'}">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Bredde</th>
+                        <th>Længde</th>
+                        <th>Tag</th>
+                        <th>Total Pris</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="order : ${session.orders}">
+                        <td th:text="${order.customerWidth}">Width</td>
+                        <td th:text="${order.customerLength}">Length</td>
+                        <td>Trapez</td>
+                        <td th:text="${order.price}">Price</td>
+                        <td>
+                            <button class="button-blue" type="submit" th:value="${order.orderId}"
+                                    th:formaction="@{/payment}">Gå til tilbud
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
     <div th:if="${session.status != 'Tilbud sendt'}">
         <h1>Ordre venter på bekræftelse fra sælger</h1>
         <h2>Tjek tilbage senere</h2>
