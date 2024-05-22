@@ -86,6 +86,7 @@ input[type=text], select {
     border: 1px solid #013d7a;
     border-radius: 4px;
     box-sizing: border-box;
+    min-width: 200px;
 }
 
 input[type=text]:focus,
@@ -96,6 +97,9 @@ select:focus {
 }
 
 .blue-color{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     background-color: #013d7a;
     margin: 0 0 0 0 ;
     border-color: #013d7a;
@@ -128,4 +132,24 @@ select:focus {
     text-align: left;
     background-color: #85b2ea;
     color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.log-buttons{
+    display: flex;
+}
+
+.buttons-makingauser {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
 }

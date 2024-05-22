@@ -1,43 +1,43 @@
 @startuml
 
-Title state_diagram
+Title Navigation Diagram
 
 [*] --> Index: Open homepage
-Index -left-> Premade_Carport: choose premade
-Premade_Carport --> Payment: choose to purchase
-Payment --> Invoice: Payment successful
-Payment --> Payment: Payment unsuccessful
-Invoice -> [*]
+Index -left-> Premadeinfo: choose premade
+Premadeinfo --> payment: choose to purchase
+payment --> purchasereceipt: payment successful
+payment --> payment: payment unsuccessful
+purchasereceipt -> [*]
 
 
-Index -right-> Custom_Carport: choose custom
-Custom_Carport --> Create_account: no account
-Custom_Carport --> Log_in: already have an account
+Index -right-> custompage: choose custom
+custompage --> createuser: no account
+custompage --> login: already have an account
 
-Create_account --> Create_account: unsuccessful, try again
-Create_account --> Log_in: account created
-Log_in --> Overview: Login successful
-Log_in --> Log_in: unsuccessful, try again
-Log_in --> Create_account: no account
-Overview --> Offer: received offer
-Offer -> Payment: Offer accepted
-Overview --> receipt: request send
-receipt --> [*]
+createuser --> createuser: unsuccessful, try again
+createuser --> login: account created
+login --> offeroverview: Login successful
+login --> login: unsuccessful, try again
+login --> createuser: no account
+offeroverview --> payment: Offer accepted
+
+offeroverview --> requestreceipt: request send
+requestreceipt --> [*]
 
 
-Index --> Log_in: already have an account
+Index --> login: already have an account
 
 state admin {
-Log_in --> Request_List: successful admin login
-Request_List -right-> Material: material update
-Request_List --> Offer_Calculator: choose a request
-Material --> Edit_Material: edit material
-Edit_Material --> Material: succes
-Edit_Material--> Edit_Material: error, try again
-Material --> [*]: no more updates
-Material --> Material: material deleted
-Offer_Calculator --> Request_List: offer send to customer
-Request_List --> [*]
+login --> adminrequest: successful admin login
+adminrequest -right-> material: material update
+adminrequest --> offercalculator: choose a request
+material --> editmaterial: edit material
+editmaterial --> material: succes
+editmaterial--> editmaterial: error, try again
+material --> [*]: no more edits
+material --> material: material deleted
+offercalculator --> adminrequest: offer send to customer
+adminrequest --> [*]
 }
 
 @enduml

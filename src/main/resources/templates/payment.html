@@ -17,40 +17,42 @@
     </header>
 
     <h1>Din Ordre</h1>
-    <form class="table" id="table-styling" method="post">
-        <table>
-            <thead>
-            <tr>
+    <div>
+        <form class="table" id="table-styling" method="post">
+            <table>
+                <thead>
+                <tr>
 
-                <th>Bredde</th>
-                <th>Længde</th>
-                <th>Tag</th>
-                <th>Total Pris</th>
-                <th>orderId</th>
-                <th>stykliste</th>
-
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="orders: ${session.orders}">
-                <td th:text="${orders.customerWidth}"></td>
-                <td th:text="${orders.customerLength}"></td>
-                <td>Trapez</td>
-                <td th:text="${orders.price}"></td>
-                <td th:text="${orders.orderId}"></td>
-                <td>
-                    <button class="button-blue" id="purchasereceipt" name="orderId" th:value="${orders.orderId}"
-                            formaction="/purchasereceipt" type="submit">Accepter tilbud
-                    </button>
-                </td>
+                    <th>Bredde</th>
+                    <th>Længde</th>
+                    <th>Tag</th>
+                    <th>Total Pris</th>
+                    <th>orderId</th>
+                    <th>stykliste</th>
 
 
-            </tr>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="orders: ${session.orders}">
+                    <td th:text="${orders.customerWidth}"></td>
+                    <td th:text="${orders.customerLength}"></td>
+                    <td>Trapez</td>
+                    <td th:text="${orders.price}"></td>
+                    <td th:text="${orders.orderId}"></td>
+                    <td>
+                        <button class="button-blue" id="purchasereceipt" name="orderId" th:value="${orders.orderId}"
+                                formaction="/purchasereceipt" type="submit">Accepter tilbud
+                        </button>
+                    </td>
 
-            </tbody>
-        </table>
-    </form>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </form>
+    </div>
 
     <div class="carport-svg-2d">
         <div th:utext="${svg}">
