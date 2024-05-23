@@ -34,12 +34,12 @@
         <tr th:each="material: ${materials}">
             <td th:text="${material.materialId}"></td>
             <td th:text="${material.name}"></td>
-            <td th:text="${material.materialWidth}"></td>
-            <td th:text="${material.materialHeight}"></td>
+            <td th:text="${material.materialWidth}">cm</td>
+            <td th:text="${material.materialHeight}">cm</td>
             <td th:text="${material.quantity}"></td>
             <td th:text="${material.unit}"></td>
-            <td th:text="${material.retailPrice}">kr</td>
-            <td th:text="${material.purchasePrice}">kr</td>
+            <td th:text="${material.retailPrice}">DKK</td>
+            <td th:text="${material.purchasePrice}">DKK</td>
             <td>
                 <!-- Edit form, ud for hvert materiale-->
             <td>
@@ -54,12 +54,12 @@
                     <input type="hidden" name="retailPrice" th:value="${material.retailPrice}">
                     <input type="hidden" name="purchasePrice" th:value="${material.purchasePrice}">
 
-                    <button type="submit">Edit</button>
+                    <button class="button-blue"type="submit">Edit</button>
                 </form>
 
                 <form action="editmaterial.html" method="post">
                     <input type="hidden" name="materialId" th:value="${material.materialId}">
-                    <button type="submit">Delete</button>
+                    <button class="button-white" type="submit">Delete</button>
                 </form>
             </td>
         </tr>
@@ -67,7 +67,7 @@
     </table>
 
     <a href="adminrequest.html" th:href="@{adminrequest}">
-        <button type="button">Back</button>
+        <button class="button-white" type="button">Back</button>
     </a>
 
     <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">

@@ -42,7 +42,7 @@
         <label for="purchasePrice">Indkøbspris:</label>
         <input type="text" id="purchasePrice" name="purchasePrice" th:value="${material.purchasePrice}">
 
-        <button type="submit" formaction="/savematerialchanges">Save Changes</button>
+        <button type="submit" class="button-blue" formaction="/savematerialchanges">Save Changes</button>
     </form>
 
     <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
