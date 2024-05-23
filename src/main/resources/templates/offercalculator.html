@@ -49,9 +49,9 @@
         </table>
 
 
-        Anbefalet pris: <span th:text="${session.totalprice}"></span><br/>
-        Indkøbspris: <span th:text="${session.purchaseprice}"></span><br/>
-        Dækningsgrad: <span th:text="${session.profitmargin}"></span><br/>
+        Anbefalet pris i DKK: <span th:text="${session.totalprice}"></span><br/>
+        Indkøbspris i DKK: <span th:text="${session.purchaseprice}"></span><br/>
+        Dækningsgrad i procent: <span th:text="${session.profitmargin}"></span><br/>
 
         <input class="price" type="text" id="set-price" name="set-price" placeholder="Indtast pris">
         <button class="button-blue" type="submit" formaction="/sendoffer">Send tilbud</button>
