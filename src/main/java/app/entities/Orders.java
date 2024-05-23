@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 
 public class Orders {
-    private String name;
+    private String carport;
     private int orderId;
     private String status;
     private LocalDate date;
@@ -62,9 +62,9 @@ public class Orders {
 
 
 
-    public Orders(int orderId, String name, String status, int userId, int customerWidth, int customerLength, int price) {
+    public Orders(int orderId, String carport, String status, int userId, int customerWidth, int customerLength, int price) {
         this.orderId = orderId;
-        this.name = name;
+        this.carport = carport;
         this.status = status;
         this.userId = userId;
         this.customerWidth = customerWidth;
@@ -73,8 +73,8 @@ public class Orders {
     }
 
 
-    public String getName() {
-        return name;
+    public String getCarport() {
+        return carport;
     }
 
     public String getStatus() {
@@ -101,8 +101,8 @@ public class Orders {
         return contactInformation;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCarport(String carport) {
+        this.carport = carport;
     }
 
     public void setStatus(String status) {

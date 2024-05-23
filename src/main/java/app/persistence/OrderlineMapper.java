@@ -82,11 +82,11 @@ public class OrderlineMapper {
 
     }
 
-    public static int makeAnOrder(String name, String status, LocalDate date, User user, int width, int length, ConnectionPool connectionPool) throws SQLException, DatabaseException {
+    public static int makeAnOrder(String carport, String status, LocalDate date, User user, int width, int length, ConnectionPool connectionPool) throws SQLException, DatabaseException {
 
         int orderId = 0;
 
-        String sql="insert into orders(name, status, dato, user_id_fk, customer_width, customer_length) values (?, ?, ?, ?, ?, ?)";
+        String sql="insert into orders(carport, status, dato, user_id_fk, customer_width, customer_length) values (?, ?, ?, ?, ?, ?)";
 
         try (
                 Connection connection = connectionPool.getConnection();
@@ -94,7 +94,7 @@ public class OrderlineMapper {
         )
 
         {
-            ps.setString(1,name);
+            ps.setString(1,carport);
             ps.setString(2, status);
             ps.setDate(3, Date.valueOf(date));
             ps.setInt(4,user.getUserId());
@@ -197,14 +197,14 @@ public class OrderlineMapper {
 
                 //Order
                 int orderId = rs.getInt("order_id");
-                String name = rs.getString("name");
+                String carport = rs.getString("carport");
                 String status = rs.getString("status");
                 //LocalDate date = rs.getDate("dato").toLocalDate();
                 int userIdFk = rs.getInt("user_id_fk");
                 int customerWidth = rs.getInt("customer_width");
                 int customerLength = rs.getInt("customer_length");
                 int totalPrice = rs.getInt("total_price");
-                orders = new Orders(orderId, name, status, userIdFk, customerWidth, customerLength, totalPrice);
+                orders = new Orders(orderId, carport, status, userIdFk, customerWidth, customerLength, totalPrice);
 
 
                 //User
@@ -273,14 +273,14 @@ public class OrderlineMapper {
 
                 //Order
 
-                String name = rs.getString("name");
+                String carport = rs.getString("carport");
                 String status = rs.getString("status");
                 //LocalDate date = rs.getDate("dato").toLocalDate();
                 int userIdFk = rs.getInt("user_id_fk");
                 int customerWidth = rs.getInt("customer_width");
                 int customerLength = rs.getInt("customer_length");
                 int totalPrice = rs.getInt("total_price");
-                orders = new Orders(orderId, name, status, userIdFk, customerWidth, customerLength, totalPrice);
+                orders = new Orders(orderId, carport, status, userIdFk, customerWidth, customerLength, totalPrice);
 
 
                 //User
