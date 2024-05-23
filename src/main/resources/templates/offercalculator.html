@@ -9,6 +9,7 @@
     <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
+
 <div class="container">
     <header class="blue-color">
         <a href="returnlogo">
@@ -43,7 +44,6 @@
                     <input type="hidden" name="orderId" th:value="${orderline.orders.orderId}"/>
                 </td>
             </tr>
-            <!-- <td th:text="${orderline.totalPrice}"></td> -->
             </tbody>
 
         </table>
@@ -62,8 +62,7 @@
     <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
         <button class="button-white">Log ud</button>
     </a>
-
-    <button class="carport-svg-2d" type="button">Se tegning</button>
 </div>
+
 </body>
 </html>

@@ -23,6 +23,7 @@ public class OrderController {
         app.post("/payment", ctx -> showCarport(ctx, connectionPool));
 
 
+
     }
 
 
@@ -75,12 +76,12 @@ public class OrderController {
         } catch (DatabaseException e) {
             //Fejlmeddelelsen fra DatabaseException tilføjes som en attribut til kontekstobjektet.
             ctx.attribute("message", e.getMessage());
-            // HTML-siden, sandsynligvis startsiden, renderes, og brugeren præsenteres for en fejlmeddelelse.
             ctx.render("login.html");
         }
 
 
 
     }
+
 
 }

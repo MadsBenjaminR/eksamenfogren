@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class OrderMapper {
 
-    public static Orders getOrderFromUserId;
 
     public static List<Orders> getAllFromOrderId(int orderId, ConnectionPool connectionPool) {
 
@@ -32,7 +31,7 @@ public class OrderMapper {
 
                 //ORDER
                 int customerWidth = rs.getInt("customer_width");
-                int customerLength = rs.getInt("customer-length");
+                int customerLength = rs.getInt("customer_length");
                 String status = rs.getString("status");
 
                 //CONTACTINFORMATION
