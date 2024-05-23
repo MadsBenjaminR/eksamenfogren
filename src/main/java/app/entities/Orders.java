@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 
 public class Orders {
-    private String carport;
+    private String name;
     private int orderId;
     private String status;
     private LocalDate date;
@@ -18,12 +18,7 @@ public class Orders {
 
 
 
-    public Orders(String carport, String status, LocalDate date, int userId) {
-        this.carport = carport;
-        this.status = status;
-        this.date = date;
-        this.userId = userId;
-    }
+
 
     public Orders(int customerWidth, int customerLength, String status, ContactInformation contactInformation) {
         this.customerWidth = customerWidth;
@@ -63,23 +58,13 @@ public class Orders {
     }
 
 
-    public Orders(int orderId, String carport, String status, LocalDate date, int userId, int customerLength, int customerWidth, int price) {
+
+
+
+
+    public Orders(int orderId, String name, String status, int userId, int customerWidth, int customerLength, int price) {
         this.orderId = orderId;
-        this.carport = carport;
-        this.status = status;
-        this.date = date;
-        this.userId = userId;
-        this.customerLength = customerLength;
-        this.customerWidth=customerWidth;
-        this.price=price;
-
-    }
-
-
-
-    public Orders(int orderId, String carport, String status, int userId, int customerWidth, int customerLength, int price) {
-        this.orderId = orderId;
-        this.carport = carport;
+        this.name = name;
         this.status = status;
         this.userId = userId;
         this.customerWidth = customerWidth;
@@ -88,8 +73,8 @@ public class Orders {
     }
 
 
-    public String getCarport() {
-        return carport;
+    public String getName() {
+        return name;
     }
 
     public String getStatus() {
@@ -116,8 +101,8 @@ public class Orders {
         return contactInformation;
     }
 
-    public void setCarport(String carport) {
-        this.carport = carport;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setStatus(String status) {
