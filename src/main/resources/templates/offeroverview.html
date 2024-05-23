@@ -46,7 +46,7 @@
             </div>
         </form>
     </div>
-    <div th:if="${session.status != 'Tilbud sendt'}">
+    <div th:unless="${session.status == 'Tilbud sendt'}">
         <h1>Ordre venter på bekræftelse fra sælger</h1>
         <h2>Tjek tilbage senere</h2>
 
@@ -60,6 +60,7 @@
     <a th:if="${session.currentUser != null}" th:href="@{/logout}">
         <button class="button-white">Log ud</button>
     </a>
+
 </div>
 </body>
 </html>
