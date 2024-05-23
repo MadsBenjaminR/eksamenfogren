@@ -51,8 +51,6 @@ public class UserController {
         User user = ctx.sessionAttribute("currentUser");
         List<Orders> orders = OrderMapper.getOrderFromUserId(user.getUserId(), connectionPool);
         ctx.sessionAttribute("orders", orders);
-        PartsListCalc.calcCarport(ctx, connectionPool);
-
 
         ctx.render("offeroverview.html");
     }
