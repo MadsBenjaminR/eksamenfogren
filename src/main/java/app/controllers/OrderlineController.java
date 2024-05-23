@@ -45,6 +45,7 @@ public class OrderlineController {
 
     private static void sendOffer(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         PartsListCalc.updatePriceWithId(ctx,connectionPool);
+        ctx.render("adminrequest.html");
     }
 
 
