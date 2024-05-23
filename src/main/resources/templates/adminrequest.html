@@ -31,8 +31,8 @@
 
                 <tbody>
                 <tr th:each="orders : ${session.ordersList}">
-                    <td th:text="${orders.customerWidth}"></td>
-                    <td th:text="${orders.customerLength}"></td>
+                    <td th:text="${orders.customerWidth}">cm</td>
+                    <td th:text="${orders.customerLength}">cm</td>
                     <td th:text="${orders.status}"></td>
                     <td th:text="${orders.contactInformation.name}"></td>
                     <td th:text="${orders.contactInformation.zipCodeFK}"></td>
@@ -48,7 +48,7 @@
     </div>
 
     <a class="button-material-list" href="material-list">
-        <button class="material-overview-btn" type="submit">Til Materiale Liste</button>
+        <button class="button-blue" type="submit">Til Materiale Liste</button>
     </a>
 
     <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">

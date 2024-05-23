@@ -31,10 +31,10 @@
                     </thead>
                     <tbody>
                     <tr th:each="order : ${session.orders}">
-                        <td th:text="${order.customerWidth}">Bredde</td>
-                        <td th:text="${order.customerLength}">Længde</td>
+                        <td th:text="${order.customerWidth}">cm</td>
+                        <td th:text="${order.customerLength}">cm</td>
                         <td>Trapez</td>
-                        <td th:text="${order.price}">Pris</td>
+                        <td th:text="${order.price}">DKK</td>
                         <td>
                             <button class="button-blue" type="submit" th:value="${order.orderId}"
                                     th:formaction="@{/payment}">Gå til tilbud

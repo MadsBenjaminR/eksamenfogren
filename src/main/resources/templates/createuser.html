@@ -19,15 +19,15 @@
     <form method="post">
         <div class="buttons-makingauser">
 
-            <input class="name" type="text" name="name" placeholder="fulde navn"/>
-            <input class="email" type="text" name="email" placeholder="e-mail"/>
-            <input class="password" type="text" name="password1" placeholder="kodeord"/>
-            <input class="password2" type="text" name="password2" placeholder="bekræft kodeord"/>
-            <input class="street-name" type="text" name="street-name" placeholder="vejnavn">
-            <input class="house-number" type="text" name="house-number" placeholder="husnummer">
-            <input class="floor" type="text" name="floor" placeholder="etage">
-            <input class="phone-number" type="text" name="phone-number" placeholder="telefon" maxlength="8">
-            <input class="zip" type="text" name="zip" placeholder="postnummer" maxlength="4">
+            <input  type="text" name="name" placeholder="fulde navn"/>
+            <input type="text" name="email" placeholder="e-mail"/>
+            <input  type="password" name="password1" placeholder="kodeord"/>
+            <input  type="password" name="password2" placeholder="bekræft kodeord"/>
+            <input  type="text" name="street-name" placeholder="vejnavn">
+            <input  type="text" name="house-number" placeholder="husnummer">
+            <input  type="text" name="floor" placeholder="etage">
+            <input  type="text" name="phone-number" placeholder="telefon" maxlength="8">
+            <input  type="text" name="zip" placeholder="postnummer" maxlength="4">
 
             <input type="hidden" name="width" id="width" th:value="${session.currentWidth}">
             <input type="hidden" name="length" id="length" th:value="${session.currentLength}">
