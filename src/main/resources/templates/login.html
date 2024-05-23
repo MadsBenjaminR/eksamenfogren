@@ -19,9 +19,9 @@
     <div class="page">
 
 
-        <form class="generic-form" method="post">
+        <form class="buttons-makingauser" method="post">
             <input type="text" name="email" placeholder="e-mail"/>
-            <input type="text" name="password" placeholder="kodeord"/>
+            <input  type="password" name="password" placeholder="kodeord"/>
             <button class="button-blue" type="submit" formaction="/login">Log ind</button>
             <input type="hidden" name="width" id="width" th:value="${session.currentWidth}">
             <input type="hidden" name="length" id="length" th:value="${session.currentLength}">
@@ -35,6 +35,10 @@
         <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
             <button class="button-white">Log ud</button>
         </a>
+
+    <p th:text="${message}" >
+
+    </p>
 
 
         <!--

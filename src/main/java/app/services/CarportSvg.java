@@ -18,7 +18,7 @@ public class CarportSvg {
     public CarportSvg(int customerWidth, int customerLength) {
         this.customerWidth = customerWidth;
         this.customerLength = customerLength;
-        carportSvg = new Svg(0,0,"100%", "0 0 850 690");
+        carportSvg = new Svg(0,0,"200%", "0 0 850 690");
         carportSvg.addRectangle2(40, 40, customerLength, 600, "stroke:#000000; fill:#ffffff");
         addRafters(customerLength);
         addBeams(customerLength);

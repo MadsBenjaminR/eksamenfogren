@@ -27,7 +27,6 @@
                     <th>Længde</th>
                     <th>Tag</th>
                     <th>Total Pris</th>
-                    <th>orderId</th>
                     <th>stykliste</th>
 
 
@@ -39,7 +38,6 @@
                     <td th:text="${orders.customerLength}"></td>
                     <td>Trapez</td>
                     <td th:text="${orders.price}"></td>
-                    <td th:text="${orders.orderId}"></td>
                     <td>
                         <button class="button-blue" id="purchasereceipt" name="orderId" th:value="${orders.orderId}"
                                 formaction="/purchasereceipt" type="submit">Accepter tilbud
@@ -47,18 +45,19 @@
                     </td>
 
 
+
                 </tr>
 
                 </tbody>
             </table>
         </form>
+        <div class="scale-svg">
+            <div th:utext="${svg}">
+
+            </div>
     </div>
 
-    <div class="carport-svg-2d">
-        <div th:utext="${svg}">
 
-        </div>
-    </div>
 
 
     <h3>Brug for hjælp?</h3>
@@ -69,6 +68,8 @@
     <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
         <button class="button-white">Log ud</button>
     </a>
+</div>
+
 </div>
 </body>
 </html>

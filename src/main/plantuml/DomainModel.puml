@@ -1,13 +1,12 @@
 @startuml
+!pragma layout smetana
 'https://plantuml.com/class-diagram
 
-@startuml
 hide circle
 hide method
 
 class Order {
     item number
-    height
     width
     length
     name
@@ -34,6 +33,14 @@ class SalesPerson {
 }
 
 class PartsList {
+name
+length
+width
+height
+unit
+quantity
+functional description
+
 
 }
 
