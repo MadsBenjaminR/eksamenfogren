@@ -9,7 +9,7 @@ public class ArrowSvg {
     public ArrowSvg(int customerWidth, int customerLength) {
         this.customerWidth = customerWidth;
         this.customerLength = customerLength;
-        arrowSvg = new Svg(0,0,"50%", "0 0 850 690");
+        arrowSvg = new Svg(0,0,"100%", "0 0 850 690");
         addLinesToArrows(customerLength);
         addText(customerWidth,customerLength);
 

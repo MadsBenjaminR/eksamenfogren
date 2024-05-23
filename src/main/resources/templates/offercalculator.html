@@ -55,7 +55,7 @@
         Indkøbspris: <span th:text="${session.purchaseprice}"></span><br/>
         Dækningsgrad: <span th:text="${session.profitmargin}"></span><br/>
         <input class="price" type="text" id="set-price" name="set-price" placeholder="Indtast pris">
-        <button class="button-blue" type="submit" formaction="/sendoffer">Send tilbud</button>
+        <a th:href="@{/adminrequest.html}" class="button-blue" >Send tilbud</a>
     </form>
 
 

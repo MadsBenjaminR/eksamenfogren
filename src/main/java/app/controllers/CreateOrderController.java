@@ -4,6 +4,7 @@ import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 import app.persistence.OrderlineMapper;
+import app.services.PartsListCalc;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
@@ -36,9 +37,10 @@ public class CreateOrderController {
 
 
     public static void createOrder(Context ctx, ConnectionPool connectionPool) throws SQLException, DatabaseException {
+        LocalDate date=LocalDate.now();
+
         int  w = Integer.parseInt(ctx.formParam("width"));
         int  l = Integer.parseInt(ctx.formParam("length"));
-
 
         ctx.sessionAttribute("currentLength",l);
         ctx.sessionAttribute("currentWidth",w);
@@ -47,10 +49,10 @@ public class CreateOrderController {
         User user = ctx.sessionAttribute("currentUser");
         int length= Integer.parseInt(ctx.formParam("length"));
         int width= Integer.parseInt(ctx.formParam("width"));
-        LocalDate date=LocalDate.now();
 
         OrderlineMapper.makeAnOrder("carport","tilbud ikke sendt",date,user,width,length,connectionPool);
 
+        PartsListCalc.calcCarport(ctx,connectionPool);
 
         ctx.render("requestreceipt.html");
 
