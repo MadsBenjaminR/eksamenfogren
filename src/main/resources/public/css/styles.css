@@ -88,8 +88,30 @@ input[type=text], select {
     box-sizing: border-box;
     min-width: 200px;
 }
+input[type=password], select {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #013d7a;
+    border-radius: 4px;
+    box-sizing: border-box;
+    min-width: 200px;
+}
+input[type=password], select {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #013d7a;
+    border-radius: 4px;
+    box-sizing: border-box;
+    min-width: 200px;
+}
+
 
 input[type=text]:focus,
+input[type=password]:focus,
 select:focus {
     outline: none; /* Remove the default focus outline */
     border-color: #013d7a; /* Apply a custom border color when focused */
@@ -152,4 +174,13 @@ select:focus {
     flex-wrap: wrap;
     gap: 10px;
     width: 100%;
+
 }
+
+.button {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+

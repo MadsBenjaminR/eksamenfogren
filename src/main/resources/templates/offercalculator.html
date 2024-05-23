@@ -9,6 +9,7 @@
     <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
+
 <div class="container">
     <header class="blue-color">
         <a href="returnlogo">
@@ -37,20 +38,21 @@
                 <td th:text="${orderline.quantity}"></td>
                 <td th:text="${orderline.unit}"></td>
                 <td th:text="${orderline.functionalDescription}"></td>
-                <td th:text="${orderline.variant.length}"></td>
-                <td th:text="${orderline.material.materialWidth}"></td>
+                <td th:text="${orderline.variant.length}">cm</td>
+                <td th:text="${orderline.material.materialWidth}">cm</td>
                 <td>
                     <input type="hidden" name="orderId" th:value="${orderline.orders.orderId}"/>
                 </td>
             </tr>
-            <!-- <td th:text="${orderline.totalPrice}"></td> -->
             </tbody>
 
         </table>
 
+
         Anbefalet pris: <span th:text="${session.totalprice}"></span><br/>
         Indkøbspris: <span th:text="${session.purchaseprice}"></span><br/>
         Dækningsgrad: <span th:text="${session.profitmargin}"></span><br/>
+
         <input class="price" type="text" id="set-price" name="set-price" placeholder="Indtast pris">
         <button class="button-blue" type="submit" formaction="/sendoffer">Send tilbud</button>
     </form>
@@ -59,8 +61,7 @@
     <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">
         <button class="button-white">Log ud</button>
     </a>
-
-    <button class="carport-svg-2d" type="button">Se tegning</button>
 </div>
+
 </body>
 </html>

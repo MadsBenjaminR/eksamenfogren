@@ -23,7 +23,6 @@ public class OrderlineController {
 
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
 
-        //  app.get("/offercalculator.html", ctx -> ctx.render("offercalculator.html"));
         app.post("/calculatebutton", ctx -> displayOrderLine(ctx, connectionPool));
 
         app.post("/sendoffer",ctx->sendOffer(ctx,connectionPool));
@@ -46,6 +45,7 @@ public class OrderlineController {
 
     private static void sendOffer(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         PartsListCalc.updatePriceWithId(ctx,connectionPool);
+        ctx.render("adminrequest.html");
     }
 
 
@@ -54,12 +54,13 @@ public class OrderlineController {
 
         int orderId = Integer.parseInt(ctx.formParam("orderId"));
 
-
         List<Orderline> orderlines = OrderlineMapper.getPartsListByOrderId(orderId, connectionPool);
         ctx.sessionAttribute("orderlines", orderlines);
         PartsListCalc.priceCalc(ctx,connectionPool);
+
         ctx.render("offercalculator.html");
 
 
     }
+
 }

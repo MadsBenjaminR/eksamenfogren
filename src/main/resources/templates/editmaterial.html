@@ -21,28 +21,28 @@
     <form action="/savematerialchanges" method="post">
         <input type="hidden" name="materialId" th:value="${material.materialId}">
 
-        <label for="name">Name:</label>
+        <label for="name">Navn:</label>
         <input type="text" id="name" name="name" th:value="${material.name}">
 
-        <label for="width">Width:</label>
+        <label for="width">Bredde:</label>
         <input type="text" id="width" name="width" th:value="${material.materialWidth}">
 
-        <label for="height">Height:</label>
+        <label for="height">Højde:</label>
         <input type="text" id="height" name="height" th:value="${material.materialHeight}">
 
-        <label for="quantity">Quantity:</label>
+        <label for="quantity">Mængde:</label>
         <input type="text" id="quantity" name="quantity" th:value="${material.quantity}">
 
-        <label for="unit">Unit:</label>
+        <label for="unit">Enhed:</label>
         <input type="text" id="unit" name="unit" th:value="${material.unit}">
 
-        <label for="retailPrice">Retail Price:</label>
+        <label for="retailPrice">Salgspris:</label>
         <input type="text" id="retailPrice" name="retailPrice" th:value="${material.retailPrice}">
 
-        <label for="purchasePrice">Purchase Price:</label>
+        <label for="purchasePrice">Indkøbspris:</label>
         <input type="text" id="purchasePrice" name="purchasePrice" th:value="${material.purchasePrice}">
 
-        <button type="submit" formaction="/savematerialchanges">Save Changes</button>
+        <button type="submit" class="button-blue" formaction="/savematerialchanges">Save Changes</button>
     </form>
 
     <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">

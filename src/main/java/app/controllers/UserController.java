@@ -43,15 +43,6 @@ public class UserController {
 
         app.get("logout", ctx -> logout(ctx));
 
-        // app.get("/logout-button", ctx -> logout(ctx));
-
-
-
-        //  app.get("/materials", ctx -> ctx.render("materials.html"));
-
-
-        //  app.get("logout", ctx -> logout(ctx));
-
 
     }
 
@@ -62,8 +53,6 @@ public class UserController {
         ctx.sessionAttribute("orders", orders);
         PartsListCalc.calcCarport(ctx, connectionPool);
 
-        //String status = orders.get(0).getStatus();
-        //ctx.sessionAttribute("status", status);
 
         ctx.render("offeroverview.html");
     }

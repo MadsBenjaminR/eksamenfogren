@@ -59,7 +59,6 @@ public class MaterialMapper {
             }
 
         } catch (SQLException e) {
-            // Rollback the transaction if an exception occurs
             throw new DatabaseException("Error updating material", e);
         }
     }

@@ -16,27 +16,6 @@ public class Orderline {
     private Material material;
     private Orders orders;
 
-   /*
-    public Orderline(int orderlineId, String description, int length, int quantity, String unit, String functionalDescription, int variantIdFk, int orderIdFk) {
-        this.orderlineId = orderlineId;
-        this.description = description;
-        this.length = length;
-        this.quantity = quantity;
-        this.unit = unit;
-        this.functionalDescription = functionalDescription;
-        this.variantIdFk = variantIdFk;
-        this.orderIdFk = orderIdFk;
-    }
-
-    public Orderline(String functionalDescription, String description, int length, int quantity, String unit) {
-        this.functionalDescription = functionalDescription;
-        this.description = description;
-        this.length = length;
-        this.quantity = quantity;
-        this.unit = unit;
-    }
-*/
-
     public Orderline(int width, int length, int price, String unit, String functionalDescription){
         this.width = width;
         this.length = length;
