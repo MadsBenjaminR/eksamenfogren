@@ -7,3 +7,5 @@ Jeppe Rønning Koch - cph-jk469@cphbusiness.dk - JeppeKoch
 Laith Alkaseb - cph-la356@cphbusiness.dk - MINGO-INC
 
 Link til demo video: https://youtu.be/2-0YVdSpi4g
+
+Link til deployd hjemmeside: https://fogeksamenren.danielherlev.dk/
