@@ -153,8 +153,8 @@ public class PartsListCalc {
     }
 
     private static float profitMarginCalc(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        float contributionMargin = partsListPriceCalc(ctx, connectionPool) - partsListPurchasePriceCalc(ctx, connectionPool);
-        float profitMargin = contributionMargin / partsListPriceCalc(ctx, connectionPool) *100;
+        float contributionMargin = partsListPriceCalcById(ctx, connectionPool) - partsListPurchasePriceCalcById(ctx, connectionPool);
+        float profitMargin = contributionMargin / partsListPriceCalcById(ctx, connectionPool) *100;
 
         return profitMargin;
     }
