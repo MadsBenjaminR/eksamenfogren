@@ -58,9 +58,9 @@ public class OrderlineController {
         ctx.sessionAttribute("orderlines", orderlines);
         PartsListCalc.priceCalc(ctx,connectionPool);
 
-
         ctx.render("offercalculator.html");
 
 
     }
+
 }

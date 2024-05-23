@@ -3,22 +3,20 @@
 Title Navigation Diagram
 
 [*] --> Index: Open homepage
-Index -left-> Premadeinfo: choose premade
-Premadeinfo --> payment: choose to purchase
 payment --> purchasereceipt: payment successful
 payment --> payment: payment unsuccessful
 purchasereceipt -> [*]
 
 
 Index -right-> custompage: choose custom
-custompage --> createuser: no account
+custompage -right-> createuser: no account
 custompage --> login: already have an account
 
 createuser --> createuser: unsuccessful, try again
-createuser --> login: account created
-login --> offeroverview: Login successful
+createuser -right-> login: account created
+login -right-> offeroverview: Login successful
 login --> login: unsuccessful, try again
-login --> createuser: no account
+login -left-> createuser: no account
 offeroverview --> payment: Offer accepted
 
 offeroverview --> requestreceipt: request send

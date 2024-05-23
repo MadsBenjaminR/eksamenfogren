@@ -19,7 +19,7 @@
     <form method="post">
 
         <h3>Stykliste</h3>
-        <table class="table" action="index.html">
+        <table class="table">
 
             <thead>
             <tr>
@@ -47,13 +47,12 @@
             </tbody>
 
         </table>
-        <h3>Dækningsgrad efter prisforslag</h3>
 
 
-        <h3>Pris og </h3>
-        Anbefalet pris: <span th:text="${session.totalprice}">DKK</span><br/>
-        Indkøbspris: <span th:text="${session.purchaseprice}">DKK</span><br/>
-        Dækningsgrad: <span th:text="${session.profitmargin}">%</span><br/>
+        Anbefalet pris: <span th:text="${session.totalprice}"></span><br/>
+        Indkøbspris: <span th:text="${session.purchaseprice}"></span><br/>
+        Dækningsgrad: <span th:text="${session.profitmargin}"></span><br/>
+
         <input class="price" type="text" id="set-price" name="set-price" placeholder="Indtast pris">
         <button class="button-blue" type="submit" formaction="/sendoffer">Send tilbud</button>
     </form>

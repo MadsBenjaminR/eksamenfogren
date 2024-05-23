@@ -27,17 +27,6 @@ public class OrderController {
 
     }
 
-
-
-    private static void displayOffer(Context ctx, ConnectionPool connectionPool) {
-
-        List<Orders> orderList=OrderMapper.getAllOrders(connectionPool);
-        ctx.sessionAttribute("ordersList", orderList);
-        ctx.render("payment.html");
-
-    }
-
-
     public static void displayAllOrders(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         List<Orders> orderList=OrderMapper.getAllOrders(connectionPool);
         ctx.sessionAttribute("ordersList", orderList);
