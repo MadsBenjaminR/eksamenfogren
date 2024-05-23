@@ -19,9 +19,7 @@ public class OrderlineMapper {
 
         List<Orderline> orderlines = new ArrayList<>();
 
-        // String sql = "SELECT orderline.functional_description, orderline.description, orderline.length, orderline.quantity, orderline.unit from public.orderline JOIN orders ON orderline.order_id = orders.order_id JOIN users ON orders.user_id_fk = users.user_id";
-        //  String sql = "SELECT orders.customer_width, orders.customer_length, orderline.unit, orderline.functional_description FROM orders JOIN orderline ON orders.order_id = orderline.order_id WHERE order_id=?";
-        String sql = "SELECT o.customer_width, o.customer_length, o.total_price, ol.unit, ol.functional_description " +
+         String sql = "SELECT o.customer_width, o.customer_length, o.total_price, ol.unit, ol.functional_description " +
                 "FROM orders o " +
                 "JOIN orderline ol ON o.order_id = ol.order_id " +
                 "WHERE ol.order_id = ?";
@@ -113,6 +111,7 @@ public class OrderlineMapper {
 
 
         }catch (SQLException e){
+            e.printStackTrace();
             throw new DatabaseException("fejl i data");
         }
 
@@ -217,7 +216,6 @@ public class OrderlineMapper {
 
                 orderline.add(new Orderline(orderlineId, quantity, unit, functionalDescription, variant, material,orders));
 
-                //orderline = new Orderline(orderlineId, description, quantity, unit, functionalDescription, variant, material);
 
             }
 
@@ -273,14 +271,14 @@ public class OrderlineMapper {
 
                 //Order
 
-                String carport = rs.getString("carport");
+                String carportName = rs.getString("carport");
                 String status = rs.getString("status");
                 //LocalDate date = rs.getDate("dato").toLocalDate();
                 int userIdFk = rs.getInt("user_id_fk");
                 int customerWidth = rs.getInt("customer_width");
                 int customerLength = rs.getInt("customer_length");
                 int totalPrice = rs.getInt("total_price");
-                orders = new Orders(orderId, carport, status, userIdFk, customerWidth, customerLength, totalPrice);
+                orders = new Orders(orderId, carportName, status, userIdFk, customerWidth, customerLength, totalPrice);
 
 
                 //User
@@ -294,7 +292,6 @@ public class OrderlineMapper {
 
                 orderline.add(new Orderline(orderlineId, quantity, unit, functionalDescription, variant, material,orders));
 
-                //orderline = new Orderline(orderlineId, description, quantity, unit, functionalDescription, variant, material);
 
             }
 

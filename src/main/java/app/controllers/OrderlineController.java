@@ -23,7 +23,6 @@ public class OrderlineController {
 
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
 
-        //  app.get("/offercalculator.html", ctx -> ctx.render("offercalculator.html"));
         app.post("/calculatebutton", ctx -> displayOrderLine(ctx, connectionPool));
 
         app.post("/sendoffer",ctx->sendOffer(ctx,connectionPool));
@@ -54,17 +53,13 @@ public class OrderlineController {
 
         int orderId = Integer.parseInt(ctx.formParam("orderId"));
 
-
         List<Orderline> orderlines = OrderlineMapper.getPartsListByOrderId(orderId, connectionPool);
         ctx.sessionAttribute("orderlines", orderlines);
         PartsListCalc.priceCalc(ctx,connectionPool);
+
+
         ctx.render("offercalculator.html");
 
 
     }
-
-
-
-
-
 }

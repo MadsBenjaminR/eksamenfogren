@@ -13,16 +13,16 @@ import java.util.List;
 public class MaterialController {
 
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
-        // Route for retrieving materials
+        // Route til at se materiale
         app.get("/material-list", ctx -> getMaterials(ctx, connectionPool));
 
-        //route til render af material siden efter et edit
+        //Route til render af material siden efter et edit
         app.get("/materials.html", ctx -> getMaterialListPage(ctx, connectionPool));
 
-        // Route for editing a material (POST request)
+        //Route til at redigere materiale
         app.post("/editmaterial.html", ctx -> editMaterial(ctx, connectionPool));
 
-        // Route for deleting a material (POST request)
+        // Route til at slette materiale
         app.post("/deleteMaterial", ctx -> deleteMaterial(ctx, connectionPool));
 
         app.post("/savematerialchanges", ctx -> saveEditMaterial(ctx, connectionPool));
@@ -59,13 +59,13 @@ public class MaterialController {
     private static void editMaterial(Context ctx, ConnectionPool connectionPool) {
         try {
             int materialId = Integer.parseInt(ctx.formParam("materialId"));
-            // Retrieve the material object from the database or any other source
+            // Hent materialeobjektet ud fra databasen
             Material material = MaterialMapper.getMaterialById(materialId, connectionPool);
 
-            // Add the material object to the context attributes
+            // Sæt det i et sessionattribute
             ctx.attribute("material", material);
 
-            // Render the editmaterial.html template
+            // Render editmaterial.html siden
             ctx.render("/editmaterial.html");
         } catch (NumberFormatException e) {
             ctx.status(400).result("Bad Request: Invalid input format");
@@ -74,15 +74,14 @@ public class MaterialController {
         }
     }
 
-    // Method to delete a material
+    // Method til at slette materiale
     private static void deleteMaterial(Context ctx, ConnectionPool connectionPool) {
         try {
             int materialId = Integer.parseInt(ctx.formParam("materialId"));
 
-            // Call MaterialMapper method to delete the material from the database
+            // Kald metode der sletter materiale fra database
             MaterialMapper.deleteMaterial(materialId, connectionPool);
 
-            // Redirect to the materials page
             ctx.render("/editmaterial.html");
         } catch (NumberFormatException e) {
             ctx.status(400).result("Bad Request: Invalid input format");
@@ -92,7 +91,7 @@ public class MaterialController {
     }
     private static void saveEditMaterial(Context ctx, ConnectionPool connectionPool) {
         try {
-            // Extract form data
+            // Træk form data ud
             int materialId = Integer.parseInt(ctx.formParam("materialId"));
             String name = ctx.formParam("name");
             int width = Integer.parseInt(ctx.formParam("width"));
@@ -102,10 +101,9 @@ public class MaterialController {
             float retailPrice = Float.parseFloat(ctx.formParam("retailPrice"));
             float purchasePrice = Float.parseFloat(ctx.formParam("purchasePrice"));
 
-            // Update material in the database
+            // Opdater materiale i databasen
             MaterialMapper.updateMaterial(materialId, name, width, height, quantity, unit, retailPrice, purchasePrice, connectionPool);
 
-            // Redirect back to materials list
             ctx.redirect("/materials.html");
         } catch (NumberFormatException e) {
             ctx.status(400).result("Bad Request: Invalid input format");

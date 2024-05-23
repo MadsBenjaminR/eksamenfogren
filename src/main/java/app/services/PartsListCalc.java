@@ -101,8 +101,8 @@ public class PartsListCalc {
         List<Orderline> order = OrderlineMapper.getPartsListByOrderId(orderId, connectionPool);
         float purchasePrice = 0;
         for(int i = 0; i<order.size()-1; i++){
-            Orderline orderline = order.get(i); // Fetch the current orderline
-            Material material = orderline.getMaterial(); // Fetch the material associated with this orderline
+            Orderline orderline = order.get(i); // Hent nuværende orderline
+            Material material = orderline.getMaterial(); // Hent materialet fra den nuværende orderline
 
             float purchasePriceTotal = material.getPurchasePrice();
             int quantity = orderline.getQuantity();
@@ -120,14 +120,14 @@ public class PartsListCalc {
         float totalPrice = 0;
         for (int i = 0; i <= userOrder.size()-1; i++) {
 
-            Orderline orderline = userOrder.get(i); // Fetch the current orderline
-            Material material = orderline.getMaterial(); // Fetch the material associated with this orderline
+            Orderline orderline = userOrder.get(i); // Hent nuværende orderline
+            Material material = orderline.getMaterial(); // Hent materiale fra nuværende orderline
 
             float retailPriceTotal = material.getRetailPrice();
             int quantity = orderline.getQuantity();
             int customerLengthInMeters= orderline.getVariant().getLength()/100;
 
-            totalPrice += quantity * (retailPriceTotal * customerLengthInMeters); // Accumulate the line price into totalPrice
+            totalPrice += quantity * (retailPriceTotal * customerLengthInMeters);
 
 
         }
@@ -139,8 +139,8 @@ public class PartsListCalc {
         List<Orderline> order = OrderlineMapper.getPartsListPrice(user.getUserId(), connectionPool);
         float purchasePrice = 0;
         for(int i = 0; i<order.size()-1; i++){
-            Orderline orderline = order.get(i); // Fetch the current orderline
-            Material material = orderline.getMaterial(); // Fetch the material associated with this orderline
+            Orderline orderline = order.get(i); // Hent nuværende orderline
+            Material material = orderline.getMaterial(); // hent materiale fra nuværende orderline
 
             float purchasePriceTotal = material.getPurchasePrice();
             int quantity = orderline.getQuantity();
